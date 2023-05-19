@@ -20,7 +20,7 @@ This is an API for a social network web application where users can share their 
 
 ## Installation
 
- Make sure you have MongoDB installed on your machine. Follow the MongoDB installation guide on The Full-Stack Blog to install MongoDB locally.Clone this repository to your local machine.Navigate to the root directory of the project in the terminal.Run npm install to install the required dependencies.
+Make sure you have MongoDB installed on your machine. Follow the MongoDB installation guide on The Full-Stack Blog to install MongoDB locally.Clone this repository to your local machine.Navigate to the root directory of the project in the terminal.Run npm install to install the required dependencies.
 
 ## Usage
 
