@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../../models/User");
+const Thought = require("../../models/Thought")
 
 router.get("/", async (req, res) => {
   try {
@@ -44,7 +45,7 @@ router.post("/:userId/friends/:friendId", async (req, res) => {
       { $push: { friends: req.params.friendId } },
       { new: true }
     );
-    res.status(201).json(user)
+    res.status(201).json(user);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server Error" });
@@ -58,7 +59,7 @@ router.delete("/:userId/friends/:friendId", async (req, res) => {
       { $pull: { friends: req.params.friendId } },
       { new: true }
     );
-    res.status(201).json(user)
+    res.status(201).json(user);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server Error" });
@@ -86,7 +87,8 @@ router.delete("/:id", async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-    res.json({ message: "User deleted" });
+    await Thought.deleteMany({ username: user.username });
+    res.json({ message: "User and associated thoughts deleted" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server Error" });
